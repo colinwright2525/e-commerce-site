@@ -1,0 +1,57 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://previews.123rf.com/images/ktvector/ktvector2007/ktvector200711893/152260241-cartoon-cute-doodles-kids-toys-and-board-games.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Boardgame Marketplace</h1>
+            <span class="subheading">Prepare for your next game night here!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    {% for game in games %}
+    <div class="row">
+      <div class="col-lg-6 col-md-6 mx-auto">
+
+        <div class="post-preview">
+          <a href="#">
+            <h2 class="post-title">
+              {{ game.name }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ game.price}}
+            </h3>
+            <p>
+              {{ game.description }}
+
+            </p>
+            {% if current_user.is_authenticated: %}
+            <a href="{{ url_for('add_to_cart', game_id=game.id) }}">➕ Add to Cart</a>
+            {% endif %}
+          </a>
+
+        </div>
+
+
+
+
+      </div>
+      <div class="col-lg-6 col-md-6 mx-auto">
+         <img src="{{ game.image }}", width="350px", height="auto">
+        </div>
+      <hr>
+
+    </div>
+    <hr>
+    {% endfor %}
+  </div>
+
+{% include "footer.html" %}
