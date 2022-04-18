@@ -61,7 +61,9 @@ boardgames = [monopoly, scrabble, clue, risk]
 @app.route('/')
 def home():
     session.clear()
-    return render_template("index.html", games=boardgames)
+    message = 'Boardgame Marketplace'
+    sub_message = 'Prepare for your next game night here!'
+    return render_template("index.html", games=boardgames, message=message, sub_message=sub_message)
 
 
 @app.route('/home')

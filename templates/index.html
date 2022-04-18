@@ -22,7 +22,7 @@
       <div class="col-lg-6 col-md-6 mx-auto">
 
         <div class="post-preview">
-          <a href="#">
+
             <h2 class="post-title">
               {{ game.name }}
             </h2>
@@ -36,7 +36,7 @@
             {% if current_user.is_authenticated: %}
             <a href="{{ url_for('add_to_cart', game_id=game.id) }}">➕ Add to Cart</a>
             {% endif %}
-          </a>
+
 
         </div>
 
