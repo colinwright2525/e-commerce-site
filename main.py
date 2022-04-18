@@ -66,8 +66,21 @@ def home():
 
 @app.route('/home')
 def get_all_games():
-    return render_template("index.html", games=boardgames)
+    message = 'Boardgame Marketplace'
+    sub_message = 'Prepare for your next game night here!'
+    return render_template("index.html", games=boardgames, message=message, sub_message=sub_message)
 
+@app.route('/success')
+def success():
+    message = 'Payment successful!'
+    sub_message = 'Continue shopping for more fun games!'
+    return render_template("index.html", games=boardgames, message=message, sub_message=sub_message)
+
+@app.route('/cancel')
+def cancel():
+    message = 'Payment failed!'
+    sub_message = 'Continue shopping for more fun games!'
+    return render_template("index.html", games=boardgames, message=message, sub_message=sub_message)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
